@@ -12,7 +12,8 @@ except ImportError:
 import pyaudio
 from collections import deque
 import wave
-from multiprocessing import Process, Queue
+from multiprocessing import Queue
+from threading import Thread
 
 class BackTrackApp(object):
 
@@ -34,7 +35,7 @@ class BackTrackApp(object):
             command=self.save)
         self.btn_save.grid(column=1, row=0, sticky=E)
         self.signal_queue = Queue()
-        self.process = Process(target=Listener, args=(self.signal_queue,))
+        self.process = Thread(target=Listener, args=(self.signal_queue,))
 
     def listen(self):
         self.process.start()
