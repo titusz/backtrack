@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 from Queue import Empty
 from Tkinter import *
-import ttk
+
+try:
+    from ttk import *
+except ImportError:
+    pass
+
 import pyaudio
 from collections import deque
 import wave
@@ -12,15 +17,15 @@ class BackTrackApp(object):
     def __init__(self):
         self.root = Tk()
         self.root.title('BackTrack v 0.1')
-        self.mainframe = ttk.Frame(self.root, padding="12 12 12 12")
+        self.mainframe = Frame(self.root, padding="12 12 12 12")
         self.mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         self.mainframe.columnconfigure(0, weight=1)
         self.mainframe.rowconfigure(0, weight=1)
         
-        self.btn_listen = ttk.Button(self.mainframe, text='Listen',
+        self.btn_listen = Button(self.mainframe, text='Listen',
             command=self.listen)
         self.btn_listen.grid(column=0, row=0, sticky=W)
-        self.btn_save = ttk.Button(self.mainframe, text='Save',
+        self.btn_save = Button(self.mainframe, text='Save',
             command=self.save)
         self.btn_save.grid(column=1, row=0, sticky=E)
         self.signal_queue = Queue()
