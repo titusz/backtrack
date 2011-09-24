@@ -2,9 +2,8 @@
 import pyaudio
 from collections import deque
 import wave
-from multiprocessing import Queue
 from threading import Thread
-from Queue import Empty
+from Queue import Queue, Empty
 
 # Python2 -> Tkinter / Python3 -> tkinter
 try:
