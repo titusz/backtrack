@@ -1,19 +1,21 @@
 # -*- coding: utf-8 -*-
-from Queue import Empty
-from Tkinter import *
-
-try:
-    from ttk import *
-    TTK = True
-except ImportError:
-    TTK = False
-
-
 import pyaudio
 from collections import deque
 import wave
 from multiprocessing import Queue
 from threading import Thread
+from Queue import Empty
+
+# Python2 -> Tkinter / Python3 -> tkinter
+try:
+    from Tkinter import *
+except ImportError:
+    from tkinter import *
+try:
+    from ttk import *
+    TTK = True
+except ImportError:
+    TTK = False
 
 class BackTrackApp(object):
 
