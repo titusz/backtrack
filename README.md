@@ -6,4 +6,4 @@ tune just manifests out of thin air:
 __"Dude, we have to record that..."__
 
 By the time you have set up the recording gear the tune hase vanished to
-where it came from.
+where it came from. Not any more...
