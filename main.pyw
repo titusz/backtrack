@@ -4,8 +4,10 @@ from Tkinter import *
 
 try:
     from ttk import *
+    TTK = True
 except ImportError:
-    pass
+    TTK = False
+
 
 import pyaudio
 from collections import deque
@@ -17,7 +19,10 @@ class BackTrackApp(object):
     def __init__(self):
         self.root = Tk()
         self.root.title('BackTrack v 0.1')
-        self.mainframe = Frame(self.root, padding="12 12 12 12")
+        if TTK:
+            self.mainframe = Frame(self.root, padding="12 12 12 12")
+        else:
+            self.mainframe = Frame(self.root)
         self.mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         self.mainframe.columnconfigure(0, weight=1)
         self.mainframe.rowconfigure(0, weight=1)
